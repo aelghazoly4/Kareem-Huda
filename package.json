@@ -1,0 +1,12 @@
+{
+  "name": "kareem-huda-wedding",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kareem & Huda — wedding invitation website (Peacock & Sun design)",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "mongodb": "^6.21.0"
+  }
+}
