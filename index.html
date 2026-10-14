@@ -6,15 +6,20 @@
 /* =====================================================================
    بيانات الدعوة — أي تعديل (اسم، ميعاد، مكان، لينك الخريطة) بيتعمل هنا بس.
    ===================================================================== */
+// الدعوة بتفتح إنجليزي، وزرار EN | عربي فوق على اليمين بيبدّل. لينك ?lang=ar بيفتحها عربي على طول.
 window.WEDDING_CONFIG = {
   groomName: 'Kareem Ashraf',
   brideName: 'Huda Hassan',
+  groomNameAr: 'كريم أشرف',
+  brideNameAr: 'هدى حسن',
   occasionType: 'wedding',            // 'wedding' أو 'engagement'
   // الخميس 10 ديسمبر 2026 — 6:00 مساءً بتوقيت القاهرة
   countdown: { year: 2026, monthIndex: 11, day: 10, hour: 18, minute: 0 },  // monthIndex: يناير = 0 … ديسمبر = 11
   weddingDateTimeISO: '2026-12-10T18:00:00+02:00',
   venueName: 'Bir Yusuf, Cairo Citadel',
   venueCity: 'Cairo, Egypt',
+  venueNameAr: 'بئر يوسف، قلعة صلاح الدين',
+  venueCityAr: 'القاهرة، مصر',
   venueAddress: '',
   // لينك جوجل ماب اللي زرار View Location بيفتحه
   venueMapDirectLink: 'https://www.google.com/maps/search/?api=1&query=Bir%20Yusuf%2C%20Cairo%20Citadel',
@@ -47,7 +52,7 @@ window.WEDDING_CONFIG = {
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Pinyon+Script&family=Amiri:wght@400;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/door-left.webp">
 <link rel="preload" as="image" href="assets/door-right.webp">
 <link rel="preload" as="image" href="assets/arch-top.webp">
@@ -66,6 +71,7 @@ window.WEDDING_CONFIG = {
   --serif:'Cormorant Garamond', 'Times New Roman', serif;
   --caps:'Cinzel', 'Times New Roman', serif;
   --script:'Pinyon Script', 'Cormorant Garamond', cursive;
+  --names:'Cormorant Garamond', 'Times New Roman', serif;
   --goldtext: linear-gradient(180deg,#f8eab8 0%,#e2c272 38%,#b8913a 62%,#f0d891 100%);
   --ease: cubic-bezier(.22,.7,.2,1);
 }
@@ -188,7 +194,7 @@ img{max-width:none; height:auto;}
   font-size:clamp(13px, 4.4vw, 19px); letter-spacing:.05em; color:var(--gold-hl); white-space:nowrap;}
 .ps-hero__eyebrow{margin:2px 0 0; font-family:var(--caps); font-size:clamp(10.5px, 3.3vw, 13px); font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--burg); line-height:1.7;}
 .ps-hero__families{margin:4px 0 2px; font-style:italic; font-size:clamp(16px, 4.8vw, 19px); color:var(--brown);}
-.ps-name{margin:0; font-family:var(--script); font-weight:400; font-size:var(--ps-name-size, clamp(34px, 11.4vw, 50px)); line-height:1.12; color:var(--burg);
+.ps-name{margin:0; font-family:var(--names); font-weight:600; font-size:var(--ps-name-size, clamp(34px, 11vw, 46px)); line-height:1.18; letter-spacing:.01em; color:var(--burg);
   text-wrap:balance; overflow-wrap:anywhere; padding:0 2px;}
 .ps-amp{margin:-2px 0; font-family:var(--caps); font-size:clamp(20px, 6vw, 26px); color:var(--gold-d); line-height:1.3;}
 .ps-hero__invite{margin:4px auto 0; max-width:290px; font-size:clamp(16px, 4.7vw, 19px); line-height:1.45; color:var(--ink); text-wrap:balance;}
@@ -283,7 +289,7 @@ img{max-width:none; height:auto;}
 .ps-rsvp__title{margin:0; font-family:var(--caps); font-weight:600; font-size:clamp(42px, 14vw, 60px); letter-spacing:.18em; line-height:1.1; padding-left:.18em;}
 .ps-rsvp__intro{margin:8px auto 0; max-width:360px; font-style:italic; font-size:clamp(17px, 5vw, 20px); line-height:1.45; color:var(--cream); text-wrap:balance;}
 .ps-rsvp__deadline{margin:8px auto 0; font-family:var(--caps); font-size:12px; letter-spacing:.2em; color:var(--gold-l); text-transform:uppercase;}
-.ps-form-card{margin:26px auto 0; padding:58px 22px 26px; text-align:left;}
+.ps-form-card{margin:26px auto 0; padding:58px 22px 26px; text-align:start;}
 .ps-field{margin:0 0 20px; border:0; padding:0; min-width:0;}
 .ps-label, .ps-field legend{display:block; margin:0 0 9px; padding:0; font-family:var(--serif); font-weight:600; font-size:18px; color:var(--ink);}
 .ps-input, .ps-textarea{width:100%; font:inherit; font-family:var(--serif); font-size:18px; color:var(--ink); background:rgba(255,251,240,.92);
@@ -371,6 +377,68 @@ img{max-width:none; height:auto;}
 #audio-control:not(.is-paused) .ps-play{display:none;}
 @keyframes ps-eq{0%,100%{height:5px;}50%{height:18px;}}
 
+
+/* =====================================================================
+   اللغة — زرار EN | عربي فوق على اليمين، والعربي بخطوط Amiri و El Messiri
+   ===================================================================== */
+.ps-lang{position:fixed; top:calc(env(safe-area-inset-top, 0px) + 14px); right:max(14px, calc((100vw - var(--col)) / 2 + 14px)); z-index:2100;
+  display:flex; align-items:center; gap:2px; padding:3px; border:0; border-radius:999px; cursor:pointer; direction:ltr;
+  background:linear-gradient(180deg, rgba(122,26,48,.94), rgba(74,14,28,.94)); box-shadow:0 0 0 1px #d9b866, 0 6px 16px rgba(0,0,0,.35);
+  -webkit-tap-highlight-color:transparent; transition:transform .2s ease;}
+.ps-lang:active{transform:scale(.96);}
+.ps-lang:focus-visible{outline:2px solid #f1dda0; outline-offset:3px;}
+.ps-lang span{display:flex; align-items:center; justify-content:center; height:30px; min-width:40px; padding:0 11px; border-radius:999px; color:var(--gold-l);
+  transition:background .35s ease, color .35s ease;}
+.ps-lang__en{font-family:var(--caps); font-size:12px; font-weight:600; letter-spacing:.14em; padding-left:12px !important;}
+.ps-lang__ar{font-family:'El Messiri', 'Segoe UI', sans-serif; font-size:15px; font-weight:600; letter-spacing:0; padding-bottom:2px !important;}
+html:not([lang="ar"]) .ps-lang__en, html[lang="ar"] .ps-lang__ar{background:linear-gradient(180deg,#f3dfa0,#d9b866 55%,#c7a24f); color:var(--burg-d);}
+
+html[lang="ar"]{--serif:'Amiri', 'Times New Roman', serif; --caps:'El Messiri', 'Segoe UI', sans-serif;}
+/* الحروف العربي لازم تفضل متصلة — من غير تباعد بين الحروف */
+html[lang="ar"] body *{letter-spacing:0 !important;}
+html[lang="ar"] .ps-goldtext{padding-block:.12em;}
+html[lang="ar"] .ps-cover__eyebrow{font-size:19px; font-weight:500;}
+html[lang="ar"] .ps-cover__names{font-family:'Amiri', serif; font-weight:700; font-size:clamp(40px, 12vw, 54px); line-height:1.45; margin:0 0 10px;}
+html[lang="ar"] .ps-cover__tap{font-size:15px;}
+html[lang="ar"] .ps-hero__eyebrow{font-family:'Amiri', serif; font-weight:700; font-size:clamp(17px, 5vw, 20px); line-height:1.65;}
+html[lang="ar"] .ps-hero__families{font-style:normal; font-size:clamp(18px, 5.2vw, 21px);}
+html[lang="ar"] .ps-name{font-family:'Amiri', serif; font-weight:700; line-height:1.55;}
+html[lang="ar"] .ps-amp{font-family:'Amiri', serif; font-size:clamp(24px, 7vw, 30px); line-height:1.2;}
+html[lang="ar"] .ps-hero__invite{font-size:clamp(18px, 5.2vw, 21px); line-height:1.75;}
+html[lang="ar"] .ps-ribbon{font-size:clamp(13px, 3.9vw, 15px); font-weight:600; padding:7px 30px 9px;}
+html[lang="ar"] .ps-sun__wd{font-size:clamp(12px, 3.6vw, 15px);}
+html[lang="ar"] .ps-sun__day{font-family:'Amiri', serif; font-size:clamp(44px, 14vw, 62px); line-height:1.1;}
+html[lang="ar"] .ps-sun__mon{font-size:clamp(14px, 4.4vw, 18px);}
+html[lang="ar"] .ps-sun__yr{font-size:clamp(12px, 3.5vw, 14px);}
+html[lang="ar"] .ps-cal{font-size:14px;}
+html[lang="ar"] .ps-det__date{font-family:'Amiri', serif; font-weight:700; font-size:clamp(21px, 6.2vw, 26px); line-height:1.6;}
+html[lang="ar"] .ps-det__time{font-family:'Amiri', serif; font-size:clamp(34px, 10.5vw, 44px); line-height:1.4;}
+html[lang="ar"] .ps-note p{font-style:normal; font-size:clamp(17px, 5vw, 19.5px); line-height:1.8;}
+html[lang="ar"] .ps-venue-h{font-family:'Amiri', serif; font-size:clamp(26px, 8vw, 32px); line-height:1.5;}
+html[lang="ar"] .ps-venue-n{font-family:'Amiri', serif; font-weight:700; font-size:clamp(19px, 5.6vw, 23px); line-height:1.6;}
+html[lang="ar"] .ps-venue-c, html[lang="ar"] .ps-card__city{font-style:normal;}
+html[lang="ar"] .ps-kids p{font-family:'Amiri', serif; font-weight:700; font-size:clamp(16px, 4.8vw, 18.5px); line-height:1.8;}
+html[lang="ar"] .ps-card__name{font-family:'Amiri', serif; font-size:clamp(23px, 7vw, 28px); line-height:1.55;}
+html[lang="ar"] .ps-btn{font-size:15px;}
+html[lang="ar"] .ps-rsvp__title{font-family:'Amiri', serif; font-weight:700; font-size:clamp(38px, 12vw, 52px); padding-left:0; line-height:1.4;}
+html[lang="ar"] .ps-rsvp__intro{font-style:normal; font-size:clamp(18px, 5.2vw, 21px); line-height:1.75;}
+html[lang="ar"] .ps-rsvp__deadline{font-size:15px;}
+html[lang="ar"] .ps-label, html[lang="ar"] .ps-field legend{font-family:'El Messiri', sans-serif; font-weight:600; font-size:17px;}
+html[lang="ar"] .ps-input, html[lang="ar"] .ps-textarea{font-family:'El Messiri', sans-serif; font-size:17px;}
+html[lang="ar"] .ps-input::placeholder, html[lang="ar"] .ps-textarea::placeholder{font-style:normal;}
+html[lang="ar"] .ps-choice__t{font-family:'El Messiri', sans-serif; font-size:17px;}
+html[lang="ar"] .ps-send{font-size:16px;}
+html[lang="ar"] .ps-thanks__t{font-family:'Amiri', serif; font-weight:700; font-size:40px; line-height:1.4;}
+html[lang="ar"] .ps-thanks__m, html[lang="ar"] .ps-err, html[lang="ar"] .ps-status{font-style:normal;}
+html[lang="ar"] .ps-cd__n{font-family:'Amiri', serif; font-weight:700; line-height:1.25;}
+html[lang="ar"] .ps-cd__l{font-size:clamp(11px, 3.2vw, 13px);}
+html[lang="ar"] .ps-cd__note{font-size:clamp(14px, 4.2vw, 16px);}
+html[lang="ar"] .ps-cd__done{font-family:'Amiri', serif; font-weight:700; line-height:1.45;}
+html[lang="ar"] .ps-adults__t{font-family:'Amiri', serif; font-weight:700; font-size:clamp(38px, 12vw, 52px); padding-left:0; line-height:1.4;}
+html[lang="ar"] .ps-adults__s{font-size:clamp(16px, 4.8vw, 19px);}
+.ps-preview-note{margin:14px auto 0; max-width:270px; font-family:var(--caps); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-d); line-height:1.6;}
+html[lang="ar"] .ps-preview-note{font-size:13px; text-transform:none;}
+
 /* static (editor / previews): everything visible, no motion */
 .ps-static [data-reveal]{opacity:1 !important; transform:none !important;}
 .ps-static .ps-sun__rays, .ps-static .ps-seal img, .ps-static .ps-pair__sun, .ps-static .ps-garden__palm{animation:none !important;}
@@ -380,6 +448,8 @@ img{max-width:none; height:auto;}
 </style>
 </head>
 <body class="ps-locked">
+
+<button id="ps-lang" class="ps-lang" type="button" aria-label="Switch to Arabic" aria-pressed="false"><span class="ps-lang__en">EN</span><span class="ps-lang__ar">عربي</span></button>
 
 <!-- ================= COVER: بوابة القصر ================= -->
 <div id="coverScreen" role="button" tabindex="0" aria-label="Open the invitation">
@@ -578,15 +648,16 @@ img{max-width:none; height:auto;}
 (function () {
   var C = window.WEDDING_CONFIG || {};
   var ENG = C.occasionType === 'engagement';
-  var OV = C.rsvpOverrides || {};
   var cd = C.countdown || {};
   var STATIC = !!C.autoOpen;
   var REDUCE = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
   var EN_M = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   var EN_D = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var AR_M = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+  var AR_D = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
 
   function q(k) { return document.querySelectorAll('[data-ps="' + k + '"]'); }
-  function set(k, v) { if (v == null || v === '') return; q(k).forEach(function (e) { e.textContent = v; }); }
+  function set(k, v) { if (v == null) return; q(k).forEach(function (e) { if (e.textContent !== v) e.textContent = v; }); }
   function pad(n) { return (n < 10 ? '0' : '') + n; }
   function first(n) { return String(n || '').trim().split(/\s+/)[0] || ''; }
   function initial(n) { var f = first(n); return f ? f.charAt(0).toUpperCase() : ''; }
@@ -595,48 +666,128 @@ img{max-width:none; height:auto;}
     return n + (s[(v - 20) % 10] || s[v] || s[0]);
   }
 
-  /* ---------- كلام التصميم (صاحب الدعوة يقدر يغيّر أي سطر من المحرر) ---------- */
-  set('coverEyebrow', ENG ? 'The Engagement of' : 'The Wedding of');
-  set('invite', ENG ? 'invite you to join us as we celebrate our engagement.' : 'invite you to join us as we celebrate the beginning of our forever.');
-  set('cdNote', ENG ? 'until our special day' : 'until we say “I do”');
+  /* =====================================================================
+     اللغة: إنجليزي (الافتراضي) وعربي — زرار فوق على اليمين بيبدّل بينهم.
+     ?lang=ar في اللينك بيفتح الدعوة عربي على طول، واختيار الضيف بيتفتكر.
+     ===================================================================== */
+  var groomEn = C.groomName || '', brideEn = C.brideName || '';
+  var groomAr = C.groomNameAr || groomEn, brideAr = C.brideNameAr || brideEn;
+  var hasDate = cd.year != null && cd.monthIndex != null && cd.day != null;
+  var wdIdx = hasDate ? new Date(cd.year, cd.monthIndex, cd.day).getDay() : 0;
+  var h = cd.hour != null ? cd.hour : 18, mi = cd.minute || 0;
 
-  /* ---------- الأسماء ---------- */
-  var groom = C.groomNameLatin || C.groomName || '';
-  var bride = C.brideNameLatin || C.brideName || '';
-  if (groom || bride) {
-    set('name1', groom); set('name2', bride);
-    set('coverNames', [first(groom), first(bride)].filter(Boolean).join(' & '));
-    set('monogram', [initial(groom), initial(bride)].filter(Boolean).join(' & '));
-    try { document.title = [first(groom), first(bride)].filter(Boolean).join(' & ') + (ENG ? ' — Engagement' : ' — Wedding Invitation'); } catch (e) { /* */ }
+  function arNum(s) { return String(s).replace(/[0-9]/g, function (d) { return '٠١٢٣٤٥٦٧٨٩'.charAt(+d); }); }
+
+  var T = {
+    en: {
+      langBtn: 'Switch to Arabic',
+      coverEyebrow: ENG ? 'The Engagement of' : 'The Wedding of',
+      coverNames: [first(groomEn), first(brideEn)].filter(Boolean).join(' & '),
+      monogram: [initial(groomEn), initial(brideEn)].filter(Boolean).join(' & '),
+      tapToOpen: 'Tap to open',
+      heroLine1: 'A Night to Remember,', heroLine2: 'a Love to Celebrate',
+      families: 'Together with their families',
+      name1: groomEn, amp: '&', name2: brideEn,
+      invite: ENG ? 'invite you to join us as we celebrate our engagement.' : 'invite you to join us as we celebrate the beginning of our forever.',
+      saveDate: 'Save the Date',
+      sunWeekday: EN_D[wdIdx], sunDay: String(cd.day), sunMonth: EN_M[cd.monthIndex], sunYear: String(cd.year),
+      addCal: 'Add to Calendar',
+      dateLine: hasDate ? EN_D[wdIdx] + ', the ' + ordinal(cd.day) + ' of ' + EN_M[cd.monthIndex] + ' ' + cd.year : '',
+      timeLine: (h % 12 || 12) + ':' + pad(mi) + ' ' + (h < 12 ? 'AM' : 'PM'),
+      ceremony: (ENG ? 'Our engagement celebration will begin at ' : 'Our marriage ceremony will begin at ') + (h % 12 || 12) + ':' + pad(mi) + ' ' + (h < 12 ? 'AM' : 'PM')
+        + ' sharp. Kindly arrive on time, as our special day wouldn’t be complete without you.',
+      venueLabel: 'Venue',
+      venueName: C.venueName || '', venueCity: C.venueAddress || C.venueCity || '',
+      kidsNote: '“We love your kids, but thought you could use the night off! Adults-only, please and thank you!”',
+      findUs: 'Where to find us', viewLocation: 'View Location',
+      kindlyReply: 'Kindly Reply', rsvpTitle: 'RSVP',
+      rsvpIntro: 'We can’t wait to celebrate with you — please let us know if you’ll join us.',
+      rsName: 'Your Name', rsAttend: 'Will you attend?', rsYes: 'Yes, I’ll be there', rsMaybe: 'Maybe', rsNo: 'Sorry, I can’t make it',
+      rsMsg: 'Message (optional)', rsSend: 'Confirm RSVP', rsThanks: 'Thank you!',
+      phName: 'e.g. Ahmed Ali', phMsg: 'Leave a wish for the couple…',
+      cdRibbon: 'Counting down to forever', cdDays: 'Days', cdHours: 'Hours', cdMinutes: 'Minutes', cdSeconds: 'Seconds',
+      cdNote: ENG ? 'until our special day' : 'until we say “I do”', cdDone: 'Today is the day!',
+      adultsTitle: 'Adults Only', adultsSub: 'No Kids Allowed, Please',
+      title: [first(groomEn), first(brideEn)].filter(Boolean).join(' & ') + (ENG ? ' — Engagement' : ' — Wedding Invitation'),
+      errName: 'Please write your name.', errAtt: 'Please let us know if you can come.',
+      errNet: 'We couldn’t send your reply. Please check your connection and try again.',
+      yes: 'We can’t wait to celebrate with you!', maybe: 'Thank you — we truly hope you can make it!',
+      no: 'You will be missed — thank you for letting us know.', done: 'Your reply has already been received. Thank you!',
+      preview: 'Preview: on the live site this reply is saved for the couple.'
+    },
+    ar: {
+      langBtn: 'Switch to English',
+      coverEyebrow: ENG ? 'حفل خطوبة' : 'حفل زفاف',
+      coverNames: [first(groomAr), first(brideAr)].filter(Boolean).join(' و '),
+      monogram: [initial(groomEn), initial(brideEn)].filter(Boolean).join(' & '),
+      tapToOpen: 'اضغط لفتح الدعوة',
+      heroLine1: 'ليلةٌ لا تُنسى،', heroLine2: 'وحبٌّ نحتفل به',
+      families: 'بصحبة عائلتيهما الكريمتين',
+      name1: groomAr, amp: 'و', name2: brideAr,
+      invite: ENG ? 'يتشرّفان بدعوتكم لمشاركتهما فرحة خطوبتهما.' : 'يتشرّفان بدعوتكم لمشاركتهما الاحتفال ببداية حياتهما معًا.',
+      saveDate: 'احفظوا الموعد',
+      sunWeekday: AR_D[wdIdx], sunDay: arNum(cd.day), sunMonth: AR_M[cd.monthIndex], sunYear: arNum(cd.year),
+      addCal: 'أضف إلى التقويم',
+      dateLine: hasDate ? AR_D[wdIdx] + '، ' + arNum(cd.day) + ' ' + AR_M[cd.monthIndex] + ' ' + arNum(cd.year) : '',
+      timeLine: arNum((h % 12 || 12) + ':' + pad(mi)) + ' ' + (h < 12 ? 'صباحًا' : 'مساءً'),
+      ceremony: (ENG ? 'يبدأ حفل الخطوبة' : 'يبدأ حفل الزفاف') + ' في تمام الساعة ' + arNum((h % 12 || 12) + ':' + pad(mi)) + ' ' + (h < 12 ? 'صباحًا' : 'مساءً')
+        + '، نرجو التكرّم بالحضور في الموعد، فيومنا لا يكتمل إلا بوجودكم.',
+      venueLabel: 'مكان الحفل',
+      venueName: C.venueNameAr || C.venueName || '', venueCity: C.venueCityAr || C.venueAddress || C.venueCity || '',
+      kidsNote: '«نحب أطفالكم كثيرًا، لكننا رأينا أنكم تستحقون ليلةً من الراحة! الحفل للكبار فقط، مع خالص شكرنا.»',
+      findUs: 'في انتظاركم', viewLocation: 'الموقع على الخريطة',
+      kindlyReply: 'نرجو الرد', rsvpTitle: 'تأكيد الحضور',
+      rsvpIntro: 'ننتظر بشوقٍ أن نحتفل معكم، فأخبرونا إن كنتم ستشاركوننا فرحتنا.',
+      rsName: 'الاسم', rsAttend: 'هل ستشاركوننا؟', rsYes: 'نعم، سأحضر بكل سرور', rsMaybe: 'ربما', rsNo: 'للأسف، لن أتمكن من الحضور',
+      rsMsg: 'رسالة للعروسين (اختياري)', rsSend: 'تأكيد الحضور', rsThanks: 'شكرًا لك!',
+      phName: 'مثال: أحمد علي', phMsg: 'اكتب أمنيتك للعروسين…',
+      cdRibbon: 'العدّ التنازلي لأجمل يوم', cdDays: 'يوم', cdHours: 'ساعة', cdMinutes: 'دقيقة', cdSeconds: 'ثانية',
+      cdNote: ENG ? 'على يوم خطوبتنا' : 'على يوم زفافنا', cdDone: 'اليوم هو يومنا الموعود!',
+      adultsTitle: 'للكبار فقط', adultsSub: 'نعتذر عن عدم اصطحاب الأطفال',
+      title: [first(groomAr), first(brideAr)].filter(Boolean).join(' و ') + (ENG ? ' — دعوة خطوبة' : ' — دعوة زفاف'),
+      errName: 'من فضلك اكتب اسمك.', errAtt: 'من فضلك أخبرنا هل ستحضر.',
+      errNet: 'لم نتمكن من إرسال ردّك، تأكد من الاتصال بالإنترنت وحاول مرة أخرى.',
+      yes: 'ننتظرك لنحتفل معًا!', maybe: 'شكرًا لك، ونتمنى من كل قلبنا أن تشاركنا فرحتنا!',
+      no: 'سنفتقدك، وشكرًا لأنك أخبرتنا.', done: 'وصلنا ردّك من قبل، شكرًا لك!',
+      preview: 'معاينة: في الموقع الحقيقي الرد ده بيتحفظ للعروسين.'
+    }
+  };
+  var TEXT_KEYS = ['coverEyebrow', 'coverNames', 'monogram', 'tapToOpen', 'heroLine1', 'heroLine2', 'families', 'name1', 'amp', 'name2', 'invite',
+    'saveDate', 'sunWeekday', 'sunDay', 'sunMonth', 'sunYear', 'addCal', 'dateLine', 'timeLine', 'ceremony', 'venueLabel', 'venueName',
+    'kidsNote', 'findUs', 'viewLocation', 'kindlyReply', 'rsvpTitle', 'rsvpIntro', 'rsName', 'rsAttend', 'rsYes', 'rsMaybe', 'rsNo',
+    'rsMsg', 'rsSend', 'rsThanks', 'cdRibbon', 'cdDays', 'cdHours', 'cdMinutes', 'cdSeconds', 'cdNote', 'cdDone', 'adultsTitle', 'adultsSub'];
+
+  var LANG = 'en';
+  var langListeners = [];
+  function L(k) { return T[LANG][k]; }
+  function digits(s) { return LANG === 'ar' ? arNum(s) : String(s); }
+
+  function applyLang(lang) {
+    LANG = lang === 'ar' ? 'ar' : 'en';
+    var t = T[LANG], root = document.documentElement;
+    root.lang = LANG; root.dir = LANG === 'ar' ? 'rtl' : 'ltr';
+    document.body.classList.toggle('ps-ar', LANG === 'ar');
+    TEXT_KEYS.forEach(function (k) { set(k, t[k]); });
+    q('venueCity').forEach(function (e) { e.textContent = t.venueCity; e.style.display = t.venueCity ? '' : 'none'; });
+    var fName = document.getElementById('ps-name'), fMsg = document.getElementById('ps-msg');
+    if (fName) fName.placeholder = t.phName;
+    if (fMsg) fMsg.placeholder = t.phMsg;
+    try { document.title = t.title; } catch (e) { /* */ }
+    var btn = document.getElementById('ps-lang');
+    if (btn) { btn.setAttribute('aria-label', t.langBtn); btn.setAttribute('aria-pressed', LANG === 'ar' ? 'true' : 'false'); }
+    langListeners.forEach(function (fn) { try { fn(LANG); } catch (e) { /* */ } });
   }
 
-  /* ---------- التاريخ والساعة ---------- */
-  var timeText = '';
-  if (cd.year != null && cd.monthIndex != null && cd.day != null) {
-    var wd = EN_D[new Date(cd.year, cd.monthIndex, cd.day).getDay()];
-    set('sunWeekday', wd); set('sunDay', String(cd.day)); set('sunMonth', EN_M[cd.monthIndex]); set('sunYear', String(cd.year));
-    set('dateLine', wd + ', the ' + ordinal(cd.day) + ' of ' + EN_M[cd.monthIndex] + ' ' + cd.year);
-  }
-  if (cd.hour != null) {
-    var h = cd.hour, mi = cd.minute || 0;
-    timeText = (h % 12 || 12) + ':' + pad(mi) + ' ' + (h < 12 ? 'AM' : 'PM');
-    set('timeLine', timeText);
-    set('ceremony', (ENG ? 'Our engagement celebration will begin at ' : 'Our marriage ceremony will begin at ') + timeText
-      + ' sharp. Kindly arrive on time, as our special day wouldn’t be complete without you.');
-  }
+  var startLang = 'en';
+  try {
+    var m = /[?&]lang=(ar|en)\b/.exec(location.search);
+    if (m) startLang = m[1];
+    else if (localStorage.getItem('kh_lang') === 'ar') startLang = 'ar';
+  } catch (e) { /* */ }
 
-  /* ---------- المكان ---------- */
-  if (C.venueName) set('venueName', C.venueName);
-  var where = C.venueAddress || C.venueCity || '';
-  q('venueCity').forEach(function (e) { e.textContent = where; e.style.display = where ? '' : 'none'; });
   var mapLink = document.querySelector('.ps-map-link');
   if (mapLink && C.venueMapDirectLink) mapLink.href = C.venueMapDirectLink;
-
-  /* ---------- نصوص فورم الحضور اللي صاحب الدعوة غيّرها من البانل ---------- */
-  set('rsvpTitle', OV.title); set('rsvpIntro', OV.intro); set('rsName', OV.nameLabel); set('rsAttend', OV.comeLabel);
-  set('rsYes', OV.yesLabel); set('rsNo', OV.noLabel); set('rsMsg', OV.foodLabel); set('rsSend', OV.submit);
-  q('rsvpDeadline').forEach(function (e) { if (OV.deadline) { e.textContent = OV.deadline; e.style.display = ''; } });
-  if (OV.hideFood) { var mf = document.querySelector('.ps-field[data-f="message"]'); if (mf) mf.style.display = 'none'; }
+  ['ps-name', 'ps-msg'].forEach(function (id) { var el = document.getElementById(id); if (el) el.setAttribute('dir', 'auto'); });
 
   /* ---------- الأقسام الاختيارية ---------- */
   var hidden = C.hiddenSections || [];
@@ -651,9 +802,8 @@ img{max-width:none; height:auto;}
   var noRsvp = hideIf('rsvp', ['mithaq-rsvp']);
 
   /* ---------- الاسمين كل واحد في سطر واحد بنفس المقاس ----------
-     لو اسم طويل (زي "Kareem Ashraf") مش هيكفي سطر، بنصغّر الاتنين سوا لحد ما
-     يكفّوا (من غير ما ننزل تحت 28px — بعدها بيلفّ عادي). مقاس صاحب الدعوة من
-     المحرر بيتحط على العنصر نفسه فبيغلب ده. */
+     لو اسم طويل مش هيكفي سطر، بنصغّر الاتنين سوا لحد ما يكفّوا (من غير ما
+     ننزل تحت 28px — بعدها بيلفّ عادي). بيتعاد مع تغيير اللغة وتحميل الخطوط. */
   (function () {
     var inner = document.querySelector('.ps-frame__inner');
     var names = [].slice.call(document.querySelectorAll('.ps-name'));
@@ -675,11 +825,13 @@ img{max-width:none; height:auto;}
         names.forEach(function (n) { n.style.whiteSpace = wrap ? '' : 'nowrap'; });
       } finally { busy = false; }
     }
-    fit();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    langListeners.push(function () { setTimeout(fit, 0); });
+    if (document.fonts) {
+      if (document.fonts.ready) document.fonts.ready.then(fit);
+      if (document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', fit);
+    }
     window.addEventListener('load', fit);
     var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fit, 120); });
-    if (window.MutationObserver) names.forEach(function (n) { new MutationObserver(function () { setTimeout(fit, 0); }).observe(n, { childList: true, characterData: true, subtree: true }); });
   })();
 
   /* ---------- إضافة للتقويم ---------- */
@@ -691,10 +843,10 @@ img{max-width:none; height:auto;}
     var end = new Date(start.getTime() + 5 * 3600 * 1000);
     function fmt(d) { return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + 'T' + pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + '00Z'; }
     function esc(s) { return String(s || '').replace(/[\\;,]/g, function (c) { return '\\' + c; }); }
-    var title = [first(groom), first(bride)].filter(Boolean).join(' & ') + (ENG ? ' — Engagement' : ' — Wedding');
+    var title = [first(groomEn), first(brideEn)].filter(Boolean).join(' & ') + (ENG ? ' — Engagement' : ' — Wedding');
     var loc = [C.venueName, C.venueAddress || C.venueCity].filter(Boolean).join(', ');
-    var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Mithaq//Invitation//EN', 'BEGIN:VEVENT',
-      'UID:' + (C.shortId || 'preview') + '@mithaq', 'DTSTAMP:' + fmt(new Date()), 'DTSTART:' + fmt(start), 'DTEND:' + fmt(end),
+    var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Kareem & Huda//Invitation//EN', 'BEGIN:VEVENT',
+      'UID:' + (C.shortId || 'preview') + '@invitation', 'DTSTAMP:' + fmt(new Date()), 'DTSTART:' + fmt(start), 'DTEND:' + fmt(end),
       'SUMMARY:' + esc(title), 'LOCATION:' + esc(loc), 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
     a.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
   })();
@@ -709,18 +861,18 @@ img{max-width:none; height:auto;}
       var diff = target - Date.now();
       if (diff <= 0) {
         root.classList.add('ps-cd--done');
-        ['d', 'h', 'm', 's'].forEach(function (k) { if (els[k]) els[k].textContent = '00'; });
+        ['d', 'h', 'm', 's'].forEach(function (k) { if (els[k]) els[k].textContent = digits('00'); });
         return false;
       }
       var s = Math.floor(diff / 1000);
       var v = { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
       Object.keys(v).forEach(function (k) {
-        var t = k === 'd' ? String(v[k]) : pad(v[k]);
-        if (k === 'd' && v[k] < 10) t = pad(v[k]);
+        var t = digits(v[k] < 10 ? pad(v[k]) : String(v[k]));
         if (els[k] && els[k].textContent !== t) els[k].textContent = t;
       });
       return true;
     }
+    langListeners.push(tick);
     if (tick()) setInterval(tick, 1000);
   })();
 
@@ -742,7 +894,7 @@ img{max-width:none; height:auto;}
   var audio = document.getElementById('invitation-audio');
   var ctl = document.getElementById('audio-control');
   function playMusic() {
-    if (!audio) return;
+    if (!audio || !ctl) return;
     try {
       audio.muted = false;
       var p = audio.play();
@@ -762,7 +914,6 @@ img{max-width:none; height:auto;}
   var cover = document.getElementById('coverScreen');
   function unlock() { document.body.classList.remove('ps-locked'); }
   if (STATIC) {
-    // المعاينة/المحرر: الدعوة مفتوحة على طول (المحرر يقدر يرجّع الغلاف بزرار)
     if (cover) cover.style.display = 'none';
     unlock();
   } else if (cover) {
@@ -784,18 +935,12 @@ img{max-width:none; height:auto;}
   if (!noRsvp) (function () {
     var root = document.getElementById('ps-rsvp');
     if (!root) return;
-    var L = {
-      errName: 'Please write your name.', errAtt: 'Please let us know if you can come.',
-      errPreview: 'This is a preview — replies work on the published invitation.',
-      errNet: 'We couldn’t send your reply. Please check your connection and try again.',
-      yes: 'We can’t wait to celebrate with you!', maybe: 'Thank you — we truly hope you can make it!',
-      no: 'You will be missed — thank you for letting us know.', done: 'Your reply has already been received. Thank you!'
-    };
     var form = root.querySelector('.ps-form'), btn = root.querySelector('.ps-send'), status = root.querySelector('.ps-status');
     var fName = root.querySelector('#ps-name'), fMsg = root.querySelector('#ps-msg'), fHp = root.querySelector('.ps-hp');
     var thanks = root.querySelector('.ps-thanks'), thanksText = root.querySelector('.ps-thanks__m');
     var shortId = C.shortId, key = 'wedding_rsvp_' + shortId, busy = false;
     var choices = [].slice.call(form.querySelectorAll('.ps-choice'));
+    var shown = '', previewNote = null;
 
     function field(name) { return root.querySelector('.ps-field[data-f="' + name + '"]'); }
     function setErr(name, text) { var f = field(name); if (f) f.querySelector('.ps-err').textContent = text || ''; }
@@ -805,19 +950,25 @@ img{max-width:none; height:auto;}
     fName.addEventListener('input', function () { if (fName.value.trim().length >= 2) setErr('name'); });
     function validate() {
       var ok = true;
-      if (fName.value.trim().length < 2) { setErr('name', L.errName); ok = false; } else setErr('name');
-      if (!choice()) { setErr('attendance', L.errAtt); ok = false; } else setErr('attendance');
+      if (fName.value.trim().length < 2) { setErr('name', L('errName')); ok = false; } else setErr('name');
+      if (!choice()) { setErr('attendance', L('errAtt')); ok = false; } else setErr('attendance');
       return ok;
     }
-    function showThanks(text) { thanksText.textContent = text; root.classList.add('ps-rsvp--done'); }
+    function showThanks(kind) { shown = kind; thanksText.textContent = L(kind) || L('yes'); root.classList.add('ps-rsvp--done'); }
     function done(att) {
-      showThanks(L[att] || L.yes);
+      showThanks(att);
       setTimeout(function () {
         var card = root.querySelector('.ps-form-card'), r = card.getBoundingClientRect();
         if (r.top < 0 || r.bottom > (window.innerHeight || 0)) card.scrollIntoView({ block: 'center', behavior: 'smooth' });
       }, 60);
     }
-    if (!STATIC && shortId) { try { if (localStorage.getItem(key)) showThanks(L.done); } catch (e) { /* */ } }
+    // تغيير اللغة: رسالة الشكر تتترجم، والأخطاء الظاهرة تتشال
+    langListeners.push(function () {
+      if (shown) thanksText.textContent = L(shown);
+      if (previewNote) previewNote.textContent = L('preview');
+      setErr('name'); setErr('attendance'); status.textContent = '';
+    });
+    if (!STATIC && shortId && !C.preview) { try { if (localStorage.getItem(key)) showThanks('done'); } catch (e) { /* */ } }
     function setBusy(on) { busy = on; btn.setAttribute('aria-disabled', on ? 'true' : 'false'); root.classList.toggle('ps-rsvp--sending', on); }
     function send() {
       if (busy) return;
@@ -825,7 +976,12 @@ img{max-width:none; height:auto;}
       if (!validate()) { if (fName.value.trim().length < 2) fName.focus(); return; }
       var att = choice();
       if (fHp && fHp.value) { done(att); return; }
-      if (!shortId) { status.textContent = L.errPreview; return; }
+      if (C.preview) {
+        done(att);
+        if (!previewNote) { previewNote = document.createElement('p'); previewNote.className = 'ps-preview-note'; thanks.appendChild(previewNote); }
+        previewNote.textContent = L('preview');
+        return;
+      }
       setBusy(true);
       fetch('/api/rsvp', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -834,10 +990,10 @@ img{max-width:none; height:auto;}
         return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; });
       }).then(function (res) {
         setBusy(false);
-        if (!res.ok) { status.textContent = (res.j && res.j.error) || L.errNet; return; }
+        if (!res.ok) { status.textContent = (LANG === 'en' && res.j && res.j.error) || L('errNet'); return; }
         try { localStorage.setItem(key, '1'); } catch (e) { /* */ }
         done(att);
-      }).catch(function () { setBusy(false); status.textContent = L.errNet; });
+      }).catch(function () { setBusy(false); status.textContent = L('errNet'); });
     }
     form.addEventListener('submit', function (e) { e.preventDefault(); send(); });
     btn.addEventListener('click', function () { send(); });
@@ -846,6 +1002,17 @@ img{max-width:none; height:auto;}
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); send(); }
     });
   })();
+
+  /* ---------- زرار اللغة ---------- */
+  var langBtn = document.getElementById('ps-lang');
+  if (langBtn) {
+    langBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      applyLang(LANG === 'ar' ? 'en' : 'ar');
+      try { localStorage.setItem('kh_lang', LANG); } catch (err) { /* */ }
+    });
+  }
+  applyLang(startLang);
 })();
 </script>
 </body>
